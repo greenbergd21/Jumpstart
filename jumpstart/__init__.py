@@ -190,3 +190,30 @@ def showerthoughts():
     censored_st = pf.censor(shower_thoughts)
     s_t = {'data': censored_st}
     return jsonify(s_t)
+
+
+###
+###
+###
+@App.route('/diningdensity', methods=['GET'])
+@limiter.limit("3/minute")
+@limiter.limit("1/second")
+def getDiningDensity():
+    response = requests.get('https://maps.rit.edu/proxySearch/densityMap.php')
+    jsonResponse = response.json()
+    result = {}
+    args = request.get_json()
+    try:
+        location = args["location"].lower()
+    except KeyError:
+        location = "gracie's"
+    if location != "all":
+        for diningLoc in jsonResponse["busyness"]:
+            if location.lower() == diningLoc['properties']['name'].lower():
+                result[location.lower()] = round(diningLoc['properties']["count"]/diningLoc['properties']['max_occ']*100, 4)
+                break
+    if len(result.keys()) == 0:
+        for diningLoc in jsonResponse["busyness"]:
+            locProps = diningLoc["properties"]
+            result[locProps["name"].lower()] = round(locProps["count"]/locProps["max_occ"]*100, 4)
+    return result
