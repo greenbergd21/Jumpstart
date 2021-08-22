@@ -1,28 +1,26 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
+<html lang="en-US"><head>
     <title>Jumpstart</title>
     <!-- Metta -->
     <meta charset="utf-8">
-    <meta name="viewport" user-scalable=false content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" user-scalable="false" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#B0197E">
     <!-- Linking to stylesheets, scriptsheets, and apis -->
     <link rel="stylesheet" href="https://assets.csh.rit.edu/csh-material-bootstrap/3.3.6/dist/csh-material-bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script id="weatherwidget-io-js" src="https://weatherwidget.io/js/widget.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="shortcut icon" href="https://assets.csh.rit.edu/uploads/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body style="background-image: url(&quot;../static/css/darkmodeF.png&quot;);">
     <!-- App container -->
     <div class="container-fluid">
         <div class="row d-flex" id="top-bar">
-            <iframe class="timewidget" id="timewidget-fake" style="padding: 17px 10px 0; float: left;" src="https://freesecure.timeanddate.com/clock/i6zogrqs/n179/fn8/fs20/fcfcf6fa/tct/pct/ahl/ftb/tt0/tm3/th2/ts1/tb1" frameborder="0" width="447" height="25" allowTransparency="true"></iframe>
+            <iframe class="timewidget" id="timewidget-fake" style="padding: 17px 10px 0; float: left;" src="https://freesecure.timeanddate.com/clock/i6zogrqs/n179/fn8/fs20/fcfcf6fa/tct/pct/ahl/ftb/tt0/tm3/th2/ts1/tb1" frameborder="0" width="447" height="25" allowtransparency="true"></iframe>
             <div class="mr-auto">
-                <iframe class="timewidget" id="timewidget-real" style="padding: 17px 10px 0; float: left;" src="https://freesecure.timeanddate.com/clock/i6zogrqs/n179/fn8/fs20/fcfcf6fa/tct/pct/ahl/ftb/tt0/tm3/th2/ts1/tb1" frameborder="0"  allowTransparency="true"></iframe>
+                <iframe class="timewidget" id="timewidget-real" style="padding: 17px 10px 0; float: left;" src="https://freesecure.timeanddate.com/clock/i6zogrqs/n179/fn8/fs20/fcfcf6fa/tct/pct/ahl/ftb/tt0/tm3/th2/ts1/tb1" frameborder="0" allowtransparency="true"></iframe>
             </div>
             <div class="file-title" style="padding: 6px 10px 0 10px;">
-                <b>Harold: <span id="harold-file-name"></span></b>
+                <b>Harold: <span id="harold-file-name">drno</span></b>
             </div>
             <div class="js-title" style="padding: 6px 10px 0 10px;">
                 <b>jumpstart.csh.rit.edu</b>
@@ -32,22 +30,38 @@
         <div class="row justify-content-around">
             <div class="col-md-10" style="align-content: left; overflow: hidden;" align="left">
                 <!-- DataDog -->
-                <iframe class="datadog" id="datadog" scrolling="no" frameborder="0" src="https://p.datadoghq.com/sb/44f16805b-cab847d58c?tv_mode=true&theme=dark"></iframe>
+                <iframe class="datadog" id="datadog" scrolling="no" frameborder="0" src="https://p.datadoghq.com/sb/44f16805b-cab847d58c?tv_mode=true&amp;theme=dark&amp;1629609709339"></iframe>
                 <!-- Announcements -->
                 <div class="announcements">
-                    <div class="panel panel-primary" style="overflow: hidden;">
+                    
+                <div class="panel panel-primary" style="overflow: hidden;">
                         <div class="panel-heading">
                             <b><span class="announcements-text-header">Announcements</span></b>
                         </div>
-                        <div class="panel-body">
-                            <div class="plug-body">
-                                <b><span class="announcements-text-body" id="announcement"></span></b>
+                        <div class="panel-body" style="background-color: black;">
+                            <div class="plug-body" style="background-color: black;">
+                                <b><span class="announcements-text-body" id="announcement" style="color: white;">  Hello! Your chair  will be giving a speech to the freshmen in A055 tonight at 8pm! It's highly recommended that freshmen show up!  will be gathering people from floor and walking over before the event starts in case you do not know where the room location is.
+
+In other news, I'm going to be chilling in the NRH Quad in about 40 minutes if anyone wants to join :))</span></b>
                             </div>
                         </div>
                     </div>
+
+                    <div class="panel panel-primary" style="overflow: hidden;">
+					   <div class="panel-heading">
+					      <b><span class="announcements-text-header">Gracie's Capacity</span></b>
+					   </div>
+					   <div class="panel-body" style="background-color: black;">
+					      <div class="plug-body" style="background-color: black;">
+					         <b><span class="announcements-text-body" id="dining_density" style="color: white;"</span></b>
+					      </div>
+					   </div>
+					</div>
+
+
                 </div>
                 <div class="weatherwidget">
-                    <a class="weatherwidget-io" id="weather-image" href="https://forecast7.com/en/43d16n77d61/rochester/?unit=us" data-label_1="ROCHESTER" data-label_2="WEATHER" data-font="Fira Sans" data-icons="Climacons Animated" data-days="100" data-theme="kitty" >ROCHESTER WEATHER</a>
+                    <a class="weatherwidget-io" id="weather-image" href="https://forecast7.com/en/43d16n77d61/rochester/?unit=us" data-label_1="ROCHESTER" data-label_2="WEATHER" data-font="Fira Sans" data-icons="Climacons Animated" data-days="100" data-theme="kitty" style="display: block; position: relative; height: 213px; padding: 0px; overflow: hidden; text-align: left; text-indent: -299rem;">ROCHESTER WEATHER<iframe id="weatherwidget-io-0" class="weatherwidget-io-frame" title="Weather Widget" scrolling="no" frameborder="0" width="100%" src="https://weatherwidget.io/w/" style="display: block; position: absolute; top: 0px; height: 213px;"></iframe></a>
                 </div>
                 <script type="text/javascript">
                     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
@@ -57,19 +71,28 @@
                         <div class="panel-heading">
                             <b><span class="shower-thoughts-text-header">Shower Thoughts - /r/showerthoughts</span></b>
                         </div>
-                        <div class="panel-body">
-                            <div class="plug-body">
-                                <b><span class="shower-thoughts-text-body" id="showerthoughts">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></b>
+                        <div class="panel-body" style="background-color: black;">
+                            <div class="plug-body" style="background-color: black;">
+                                <b><span class="shower-thoughts-text-body" id="showerthoughts" style="background-color: black; color: white;">Spotify could probably make a lot more money if
+they played actual ads instead of their own "buy
+premium" ads.</span></b>
                             </div>
                         </div>
                     </div>
                 </div>
+    
+    
+    
+    
+    
+    
+    
             </div>
             <!-- Right Set (Calendar) -->
             <div class="col-md-2">
-                <div class="calendar-frame-lvl1" style="float: right;" width="" height="940" frameborder="0" scrolling="no">
+                <div class="calendar-frame-lvl1" style="float: right; background-color: black;" width="" height="940" frameborder="0" scrolling="no">
                     <!-- Calendar spawner -->
-                    <b><div id="calendar"></div></b>
+                    <b><div id="calendar"><br><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 10 hours </span><br><span class="calendar-text" id="calendar" style="color: white;">SIH New Member Orientation (RIT Hosted)</span></div><hr style="border: 1px #B0197E solid;"><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 11 hours </span><br><span class="calendar-text" id="calendar" style="color: white;">Gracie's Brunch</span></div><hr style="border: 1px #B0197E solid;"><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 15 hours </span><br><span class="calendar-text" id="calendar" style="color: white;">Help Frosh Find Their Classes</span></div><hr style="border: 1px #B0197E solid;"><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 18 hours </span><br><span class="calendar-text" id="calendar" style="color: white;">First House Meeting</span></div><hr style="border: 1px #B0197E solid;"><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 19 hours </span><br><span class="calendar-text" id="calendar" style="color: white;">First Day of Classes</span></div><hr style="border: 1px #B0197E solid;"><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 2 days </span><br><span class="calendar-text" id="calendar" style="color: white;">History Meeting</span></div><hr style="border: 1px #B0197E solid;"><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 2 days </span><br><span class="calendar-text" id="calendar" style="color: white;">History Discussion</span></div><hr style="border: 1px #B0197E solid;"><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 3 days </span><br><span class="calendar-text" id="calendar" style="color: white;">Social</span></div><hr style="border: 1px #B0197E solid;"><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 3 days </span><br><span class="calendar-text" id="calendar" style="color: white;">Imps / Upgrade Committee</span></div><hr style="border: 1px #B0197E solid;"><div class="calendar-event-container-lvl2"><span class="calendar-text-date" style="color: white;"> 4 days </span><br><span class="calendar-text" id="calendar" style="color: white;">Bill Gray's at Lake Ontario with Potter</span></div><hr style="border: 1px #B0197E solid;"></div></b>
                 </div>
             </div>
         </div>
@@ -189,5 +212,5 @@ setInterval(function(){
 // Weather Widget refresh
 setInterval('__weatherwidget_init()', 1800000)
 </script>
-</body>
-</html>
+
+</body></html>
