@@ -49,7 +49,7 @@ In other news, I'm going to be chilling in the NRH Quad in about 40 minutes if a
 
                     <div class="panel panel-primary" style="overflow: hidden;">
 					   <div class="panel-heading">
-					      <b><span class="announcements-text-header">Gracie's Capacity</span></b>
+					      <b><span class="announcements-text-header">Gracie's Capacity: <span id = "diningdensity"></span></span></b>
 					   </div>
 					   <div class="panel-body" style="background-color: black;">
 					      <div class="plug-body" style="background-color: black;">
@@ -173,6 +173,17 @@ function mediumUpdate(){
     .then(r => r.json())
     .then(r => {
         $("#announcement").text(r.data.substring(0, 910))
+    })
+    .catch(err => console.log(err))
+	
+    fetch('/diningdensity', {
+        method: 'GET',
+        mode:'cors',
+        dataType: 'json'
+    })
+    .then(r => r.json())
+    .then(r => {
+        $("#diningdensity").text(r.data)
     })
     .catch(err => console.log(err))
 }
