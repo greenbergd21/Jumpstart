@@ -175,7 +175,9 @@ function mediumUpdate(){
         $("#announcement").text(r.data.substring(0, 910))
     })
     .catch(err => console.log(err))
-	
+	/*
+	* Uncomment when ready
+	*
     fetch('/diningdensity', {
         method: 'GET',
         mode:'cors',
@@ -185,7 +187,7 @@ function mediumUpdate(){
     .then(r => {
         $("#diningdensity").text(r.data)
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err)) */
 }
 
 function shortUpdate(){
